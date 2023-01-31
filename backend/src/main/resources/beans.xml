@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="docker" class="com.demo.backend.bean.Docker">
+        <!-- <property name="name" value="Jo"></property>
+        <property name="nurse" ref="nurse"></property> -->
+        <constructor-arg index="0" value="Jenny"/>
+        <constructor-arg index="1" ref="nurse"/>
+    </bean>
+    <bean id="nurse" class="com.demo.backend.bean.Nurse"></bean>
+</beans>
