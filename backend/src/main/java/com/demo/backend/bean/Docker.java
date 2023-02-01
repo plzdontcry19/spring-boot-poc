@@ -1,32 +1,13 @@
 package com.demo.backend.bean;
 
+import org.springframework.beans.factory.config.ConfigurableBeanFactory;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
+import lombok.Data;
+
+@Data
+@Component("helo")
+@Scope(scopeName = ConfigurableBeanFactory.SCOPE_SINGLETON)
 public class Docker {
-
-    private String name;
-    private Nurse nurse;
-
-    public Docker(String name, Nurse nurse) {
-        this.name = name;
-        this.nurse = nurse;
-    }
-
-    public Nurse getNurse() {
-        return nurse;
-    }
-
-    public void setNurse(Nurse nurse) {
-        this.nurse = nurse;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void heal() {
-        System.out.println("Docker is healing");
-    }
+    private String name; 
 }

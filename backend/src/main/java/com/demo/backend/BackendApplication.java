@@ -3,24 +3,38 @@ package com.demo.backend;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.demo.backend.bean.Docker;
-import com.demo.backend.bean.Nurse;
+import com.demo.backend.bean.BeanConfig;
 
 @SpringBootApplication
 public class BackendApplication {
 
-	public static void main(String[] args) {
-		
+	public static ApplicationContext retriveXmlBasedContext() {
 		// XML Based Configuration
-		try (ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("beans.xml")) {
-			Docker docker = context.getBean(Docker.class);
-			docker.heal();
-			System.out.println("getName: " + docker.getName());
-			Nurse nurse = docker.getNurse();
-			nurse.heal();
-		}
+		ApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
+		return context;
+
+	}
+
+	public static ApplicationContext retriveAnnotationBasedContext() {
+		// Annotation Based Configuration
+		ApplicationContext context = new AnnotationConfigApplicationContext(BeanConfig.class);
+		return context;
+
+	}
+
+	public static void main(String[] args) {
+		ApplicationContext context = retriveAnnotationBasedContext();
+		Docker docker = context.getBean(Docker.class);
+		docker.setName("helo");
+		System.out.println(docker);
+
+		Docker dockerCopy = context.getBean(Docker.class);
+		dockerCopy.setName("hey");
+		System.out.println(dockerCopy);
 
 		SpringApplication.run(BackendApplication.class, args);
 	}
