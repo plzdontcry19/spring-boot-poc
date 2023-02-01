@@ -32,10 +32,8 @@ public class BackendApplication {
 		docker.setName("helo");
 		System.out.println(docker);
 
-		Docker dockerCopy = context.getBean(Docker.class);
-		dockerCopy.setName("hey");
-		System.out.println(dockerCopy);
-
+		docker.say("world!");
+		System.out.println("pill: " + docker.retrivePill());
 		SpringApplication.run(BackendApplication.class, args);
 	}
 
