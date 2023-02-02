@@ -2,6 +2,7 @@ package com.demo.backend.service;
 
 import java.util.List;
 import com.demo.backend.entity.User;
+import com.demo.backend.exception.NotFoundException;
 
 public interface UserService {
 
@@ -9,7 +10,7 @@ public interface UserService {
 
     List<User> listUsers();
 
-    User retriveUser(Long userId);
+    User retriveUser(Long userId) throws NotFoundException;
 
     void deleteUser(Long userId);
 

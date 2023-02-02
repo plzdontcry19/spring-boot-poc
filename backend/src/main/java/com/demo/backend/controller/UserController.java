@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.demo.backend.dto.UserDTO;
 import com.demo.backend.entity.User;
+import com.demo.backend.exception.NotFoundException;
 import com.demo.backend.service.UserService;
 
 import jakarta.validation.Valid;
@@ -33,7 +34,7 @@ public class UserController {
     }
 
     @GetMapping("/user/{id}")
-    public User retriveUser(@PathVariable("id") Long userId) {
+    public User retriveUser(@PathVariable("id") Long userId) throws NotFoundException {
         return this.userService.retriveUser(userId);
     }
 
@@ -43,10 +44,10 @@ public class UserController {
     }
 
     @PostMapping("/user")
-    public UserDTO craeteUser(@Valid @RequestBody UserDTO body) {
-        this.logger.info("Create user body: " + body.toString());
-        return body;
-        // return this.userService.craeteUser(body);
+    public User craeteUser(@Valid @RequestBody User body) {
+        // this.logger.info("Create user body: " + body.toString());
+        // return body;
+        return this.userService.craeteUser(body);
     }
 
     @DeleteMapping("/user/{id}")
