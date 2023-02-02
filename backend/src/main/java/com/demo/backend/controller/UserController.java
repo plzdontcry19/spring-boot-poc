@@ -2,6 +2,8 @@ package com.demo.backend.controller;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,6 +25,8 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    private final Logger logger = LoggerFactory.getLogger(UserController.class);
+
     @GetMapping("/user")
     public List<User> listUsers() {
         return this.userService.listUsers();
@@ -40,6 +44,7 @@ public class UserController {
 
     @PostMapping("/user")
     public UserDTO craeteUser(@Valid @RequestBody UserDTO body) {
+        this.logger.info("Create user body: " + body.toString());
         return body;
         // return this.userService.craeteUser(body);
     }
