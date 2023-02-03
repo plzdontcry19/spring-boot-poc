@@ -15,6 +15,7 @@
 	<name>backend</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
+		<jar.finalName>backend</jar.finalName>
 		<java.version>17</java.version>
 	</properties>
 	<dependencies>
@@ -94,10 +95,11 @@
 			<artifactId>spring-boot-devtools</artifactId>
 			<version>3.0.2</version>
 		</dependency>
-		
+
 	</dependencies>
 
 	<build>
+		<finalName>${jar.finalName}</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
