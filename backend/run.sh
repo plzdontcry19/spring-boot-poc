@@ -1,0 +1,1 @@
+source .env && mvn spring-boot:run
