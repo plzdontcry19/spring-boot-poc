@@ -6,7 +6,7 @@ import com.demo.backend.exception.NotFoundException;
 
 public interface UserService {
 
-    User craeteUser(User user);
+    User createUser(User user);
 
     List<User> listUsers();
 

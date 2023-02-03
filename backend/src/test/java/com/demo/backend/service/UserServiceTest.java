@@ -30,7 +30,7 @@ public class UserServiceTest {
         User user = User.builder()
                 .age(1)
                 .name("Helo")
-                .userId(1L)
+                .userId(2L)
                 .build();
 
         List<User> users = new ArrayList<>();
