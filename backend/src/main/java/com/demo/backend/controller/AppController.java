@@ -12,9 +12,12 @@ public class AppController {
     @Value("${welcome.message}")
     private String message;
 
+    @Value("${server.port}")
+    private String serverPort;
+
     @GetMapping()
     public String index() {
-        return this.message;
+        return this.message + " " + this.serverPort;
     }
 
 }
