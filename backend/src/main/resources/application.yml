@@ -2,7 +2,7 @@ server:
   port: ${SERVER_PORT}
 spring:
   profiles:
-    active: ${PROFILE_ACTIVE} 
+    active: ${PROFILE_ACTIVE}
   datasource:
     password: ${DB_PASSWORD}
     url: ${DB_URL}
@@ -23,3 +23,10 @@ spring:
       platform: postgres
 welcome:
   message: Welcome to poc project!
+
+management:
+  endpoints:
+    web:
+      exposure:
+        exclude: "env,beans"
+        include: "*"
