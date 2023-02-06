@@ -19,7 +19,7 @@ public class FeatureEndpoint {
     private final Map<String, Feature> featureMap = new ConcurrentHashMap<>();
 
     @ReadOperation
-    public Map<String, Feature> FeatureEndpoint() {
+    public Map<String, Feature> featureEndpoint() {
         featureMap.put("User", new Feature(true));
         return featureMap;
     }

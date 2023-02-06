@@ -30,6 +30,7 @@ public class UserServiceTest {
         User user = User.builder()
                 .age(1)
                 .name("Helo")
+                .email("test@gmail.com")
                 .userId(2L)
                 .build();
 
